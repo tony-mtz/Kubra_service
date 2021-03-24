@@ -12,3 +12,4 @@ Template to quickly setup a functioning development environment with webpack.<br
 
 This template is meant to be a starting point.  Customize it to suit your needs.
 Proxy path is set to "/".  Change as needed.
+ 
