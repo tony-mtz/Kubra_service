@@ -1,28 +1,14 @@
 const {gql} = require('apollo-server-express')
 
 const typeDefs = gql`
-
-  type Value{
-    date: Int! 
-    value: String!
-  }
-
-  type Values{
-    Value: [Value]
-  }
-
-  type Data{
-    resultType: String
-    result:[Values]
-
-  }
-  type ResultObject{
-    status: String!
-    data: Data 
+  type Metric{
+    dateTime: String
+    value: String
   }
 
   type Query{
-    getCpuUsageSecondsTotal(start:String!, stop:String!): Data
+    cpuUsage(start:String!, end:String!, step:String!): [Metric]
+    networkUsage(start:String!, end:String!, step:String!): [Metric]
   }
 `
 

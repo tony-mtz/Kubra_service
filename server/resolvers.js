@@ -1,7 +1,11 @@
+
 const resolvers = {
   Query:{
-    async cpuUsage(_, _args, {dataSources}){
-      dataSources.prometheusAPI.getCpuUsageSecondsTotal()
+    cpuUsage: async(_, {start, end, step}, {dataSources})=>{
+      return dataSources.prometheusAPI.getCpuUsageSecondsTotal(start, end, step)
+    },
+    networkUsage: async(_, {start, end, step}, {dataSources})=>{
+      return dataSources.prometheusAPI.getNetworkTransmit(start, end, step)
     }
   }
 }
